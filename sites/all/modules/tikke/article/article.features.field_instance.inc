@@ -84,19 +84,20 @@ function article_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_image',
     'label' => 'Image',
-    'required' => FALSE,
+    'required' => 0,
     'settings' => array(
-      'alt_field' => TRUE,
+      'alt_field' => 1,
       'default_image' => 0,
-      'file_directory' => 'field/image',
+      'file_directory' => 'articles',
       'file_extensions' => 'png gif jpg jpeg',
       'max_filesize' => '',
       'max_resolution' => '',
       'min_resolution' => '',
-      'title_field' => '',
+      'title_field' => 0,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
+      'active' => 1,
       'module' => 'image',
       'settings' => array(
         'preview_image_style' => 'thumbnail',
@@ -147,6 +148,46 @@ function article_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-article-field_teaser'
+  $field_instances['node-article-field_teaser'] = array(
+    'bundle' => 'article',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 11,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_teaser',
+    'label' => 'teaser',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 5,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 0,
+    ),
+  );
+
   // Translatables
   // Included for use with string extractors like potx.
   t('Body');
@@ -154,6 +195,7 @@ function article_field_default_field_instances() {
   t('Image');
   t('Tags');
   t('Upload an image to go with this article.');
+  t('teaser');
 
   return $field_instances;
 }
